@@ -1,9 +1,11 @@
 package model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class Admin extends Usuario {
     private String nome;

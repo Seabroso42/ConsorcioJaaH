@@ -10,8 +10,7 @@ public class Cliente extends Usuario {
 
     private ArrayList<Grupo> consorciosAtivos;
 
-    public Cliente() {
-    }
+    public Cliente() {}
 
     public Cliente(ArrayList<Grupo> consorciosAtivos) {
         super();

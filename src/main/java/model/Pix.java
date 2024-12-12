@@ -6,10 +6,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Pix extends Pagamento {
-    private String codigoPix;
     private String chavePix;
     private boolean realizado;
-
-
-
 }
