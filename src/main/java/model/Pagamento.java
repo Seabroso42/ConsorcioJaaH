@@ -3,7 +3,7 @@ package model;
 import lombok.Data;
 
 @Data
-public abstract class Pagamento {
+public abstract class Pagamento implements Processo {
     private long id;
     private Cliente pagador;
     private double valor;
@@ -17,12 +17,7 @@ public abstract class Pagamento {
     }
 
     @Override
-    public String toString() {
-        return "\n{" + 
-                "id=" + id + '\n' +
-                ", valor=" + valor + '\n' +
-                ", status=" + status + '\n' +
-                "} \n ";
-    }
+    public void sendRelatorio(){}
+
    
 }

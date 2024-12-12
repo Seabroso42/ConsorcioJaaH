@@ -5,16 +5,15 @@ import enums.TipoServico;
 import lombok.Data;
 
 @Data
-public class Contrato {
+public class Contrato implements Processo{
     private Long idContrato;
-    private boolean clienteVinculado;
+    private Cliente clienteVinculado;
     private TipoServico tipoServico;
     private StatusCliente statusCliente;
 
-    public Contrato(Long idContrato, boolean clienteVinculado, TipoServico tipoServico) {
-        this.idContrato = idContrato;
-        this.clienteVinculado = clienteVinculado;
-        this.tipoServico = tipoServico;
-    }
 
+    @Override
+    public void sendRelatorio() {
+
+    }
 }
