@@ -1,39 +1,20 @@
 package model;
 
+import enums.StatusCliente;
+import enums.TipoServico;
+import lombok.Data;
+
+@Data
 public class Contrato {
     private Long idContrato;
     private boolean clienteVinculado;
-    private Enum tipoServico;
+    private TipoServico tipoServico;
+    private StatusCliente statusCliente;
 
-    public Contrato(Long idContrato, boolean clienteVinculado, Enum tipoServico) {
+    public Contrato(Long idContrato, boolean clienteVinculado, TipoServico tipoServico) {
         this.idContrato = idContrato;
         this.clienteVinculado = clienteVinculado;
         this.tipoServico = tipoServico;
     }
 
-    public Long getIdContrato() {
-        return idContrato;
-    }
-
-    public void setIdContrato(Long idContrato) {
-        this.idContrato = idContrato;
-    }
-
-    public boolean isClienteVinculado() {
-        return clienteVinculado;
-    }
-
-    public void setClienteVinculado(boolean clienteVinculado) {
-        this.clienteVinculado = clienteVinculado;
-    }
-
-    public Enum getTipoServico() {
-        return tipoServico;
-    }
-
-    public void setTipoServico(Enum tipoServico) {
-        this.tipoServico = tipoServico;
-    }
-
-    public void statusCliente();
 }
