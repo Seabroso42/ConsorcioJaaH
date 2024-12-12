@@ -1,13 +1,18 @@
 package model;
 
-public class CartaoDeCredito {
-    private long id;
+public class CartaoDeCredito extends Pagamento {
     private int parcelas;
-    private Pagamento pagamento;
+
+    public int getParcelas() {
+        return parcelas;
+    }
+
+    public void setParcelas(int parcelas) {
+        this.parcelas = parcelas;
+    }
 
     public CartaoDeCredito(long id, int parcelas, Pagamento pagamento) {
-        this.id = id;
+        super(id, pagamento.getValor(), pagamento.getStatus());
         this.parcelas = parcelas;
-        this.pagamento = pagamento;
     }
 }

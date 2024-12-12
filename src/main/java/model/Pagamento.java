@@ -4,18 +4,46 @@ import java.util.ArrayList;
 
 public class Pagamento {
     private long id;
-    private int parcela;
+    private double valor;
     private Boolean status;
-    private ArrayList<Boleto> boletos;
-    private ArrayList<Pix> pixs;
-    private ArrayList<CartaoDeCredito> cartoesDeCredito;
 
-    public Pagamento(long id, int parcela, Boolean status, ArrayList<Boleto> boletos, ArrayList<Pix> pixs, ArrayList<CartaoDeCredito> cartoesDeCredito) {
+
+    public Pagamento(long id, double valor, Boolean status) {
         this.id = id;
-        this.parcela = parcela;
+        this.valor = valor;
         this.status = status;
-        this.boletos = boletos;
-        this.pixs = pixs;
-        this.cartoesDeCredito = cartoesDeCredito;
     }
+
+
+    public long getId() {
+        return id;
+    }
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
+    public double getValor() {
+        return valor;
+    }
+
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+
+   
 }
