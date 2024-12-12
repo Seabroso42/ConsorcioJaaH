@@ -1,5 +1,7 @@
 package repository;
 
+import model.Pagamento;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +14,12 @@ public class PagamentoRepository {
     }
 
     public Optional<Pagamento> getById(long id) {
-        return pagamentos.stream()
-                .filter(pagamento -> pagamento.getId() == id)
-                .findFirst();
+        for (Pagamento pagamento : pagamentos) {
+            if (pagamento.getId() == id) {
+                return Optional.of(pagamento);
+            }
+        }
+        return Optional.empty();
     }
 
     public void insert(Pagamento pagamento) {
@@ -22,17 +27,22 @@ public class PagamentoRepository {
     }
 
     public boolean update(long id, Pagamento updatedPagamento) {
-        Optional<Pagamento> existingPagamentoOpt = getById(id);
-        if (existingPagamentoOpt.isPresent()) {
-            Pagamento existingPagamento = existingPagamentoOpt.get();
-            existingPagamento.setValor(updatedPagamento.getValor());
-            existingPagamento.setStatus(updatedPagamento.getStatus());
-            return true;
+        for (int i = 0; i < pagamentos.size(); i++) {
+            if (pagamentos.get(i).getId() == id) {
+                pagamentos.set(i, updatedPagamento);
+                return true;
+            }
         }
         return false;
     }
 
     public boolean delete(long id) {
-        return pagamentos.removeIf(pagamento -> pagamento.getId() == id);
+        for (int i = 0; i < pagamentos.size(); i++) {
+            if (pagamentos.get(i).getId() == id) {
+                pagamentos.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,4 +1,7 @@
 package repository;
+
+import model.CartaoDeCredito;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -10,27 +13,36 @@ public class CartaoDeCreditoRepository {
         return new ArrayList<>(cartoesDeCredito);
     }
 
-    public Optional<CartaoDeCredito> getById(String id) {
-        return cartoesDeCredito.stream()
-                .filter(cartao -> cartao.getId().equals(id))
-                .findFirst();
+    public Optional<CartaoDeCredito> getById(long id) {
+        for (CartaoDeCredito cartao : cartoesDeCredito) {
+            if (cartao.getId() == id) {
+                return Optional.of(cartao);
+            }
+        }
+        return Optional.empty();
     }
 
     public void insert(CartaoDeCredito cartaoDeCredito) {
         cartoesDeCredito.add(cartaoDeCredito);
     }
 
-    public boolean update(String id, CartaoDeCredito updatedCartaoDeCredito) {
-        Optional<CartaoDeCredito> existingCartaoOpt = getById(id);
-        if (existingCartaoOpt.isPresent()) {
-            CartaoDeCredito existingCartao = existingCartaoOpt.get();
-            existingCartao.setNumeroCartao(updatedCartaoDeCredito.getNumeroCartao());
-            return true;
+    public boolean update(long id, CartaoDeCredito updatedCartaoDeCredito) {
+        for (int i = 0; i < cartoesDeCredito.size(); i++) {
+            if (cartoesDeCredito.get(i).getId() == id) {
+                cartoesDeCredito.set(i, updatedCartaoDeCredito);
+                return true;
+            }
         }
         return false;
     }
 
-    public boolean delete(String id) {
-        return cartoesDeCredito.removeIf(cartao -> cartao.getId().equals(id));
+    public boolean delete(long id) {
+        for (int i = 0; i < cartoesDeCredito.size(); i++) {
+            if (cartoesDeCredito.get(i).getId() == id) {
+                cartoesDeCredito.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }

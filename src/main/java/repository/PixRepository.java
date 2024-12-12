@@ -14,9 +14,12 @@ public class PixRepository {
     }
 
     public Optional<Pix> getById(long id) {
-        return pixList.stream()
-                .filter(pix -> pix.getId() == id)
-                .findFirst();
+        for (Pix pix : pixList) {
+            if (pix.getId() == id) {
+                return Optional.of(pix);
+            }
+        }
+        return Optional.empty();
     }
 
     public void insert(Pix pix) {
@@ -24,20 +27,22 @@ public class PixRepository {
     }
 
     public boolean update(long id, Pix updatedPix) {
-        Optional<Pix> existingPixOpt = getById(id);
-        if (existingPixOpt.isPresent()) {
-            Pix existingPix = existingPixOpt.get();
-            existingPix.setCodigoPix(updatedPix.getCodigoPix());
-            existingPix.setChavePix(updatedPix.getChavePix());
-            existingPix.setPagador(updatedPix.getPagador());
-            existingPix.setValor(updatedPix.getValor());
-            existingPix.setStatus(updatedPix.getStatus());
-            return true;
+        for (int i = 0; i < pixList.size(); i++) {
+            if (pixList.get(i).getId() == id) {
+                pixList.set(i, updatedPix);
+                return true;
+            }
         }
         return false;
     }
 
     public boolean delete(long id) {
-        return pixList.removeIf(pix -> pix.getId() == id);
+        for (int i = 0; i < pixList.size(); i++) {
+            if (pixList.get(i).getId() == id) {
+                pixList.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }

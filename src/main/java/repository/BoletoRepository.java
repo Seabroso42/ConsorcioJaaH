@@ -14,9 +14,12 @@ public class BoletoRepository {
     }
 
     public Optional<Boleto> getById(long id) {
-        return boletos.stream()
-                .filter(boleto -> boleto.getId() == id)
-                .findFirst();
+        for (Boleto boleto : boletos) {
+            if (boleto.getId() == id) {
+                return Optional.of(boleto);
+            }
+        }
+        return Optional.empty();
     }
 
     public void insert(Boleto boleto) {
@@ -24,20 +27,22 @@ public class BoletoRepository {
     }
 
     public boolean update(long id, Boleto updatedBoleto) {
-        Optional<Boleto> existingBoletoOpt = getById(id);
-        if (existingBoletoOpt.isPresent()) {
-            Boleto existingBoleto = existingBoletoOpt.get();
-            existingBoleto.setCodigoBoleto(updatedBoleto.getCodigoBoleto());
-            existingBoleto.setVencimento(updatedBoleto.getVencimento());
-            existingBoleto.setPagador(updatedBoleto.getPagador());
-            existingBoleto.setValor(updatedBoleto.getValor());
-            existingBoleto.setStatus(updatedBoleto.getStatus());
-            return true;
+        for (int i = 0; i < boletos.size(); i++) {
+            if (boletos.get(i).getId() == id) {
+                boletos.set(i, updatedBoleto);
+                return true;
+            }
         }
         return false;
     }
 
     public boolean delete(long id) {
-        return boletos.removeIf(boleto -> boleto.getId() == id);
+        for (int i = 0; i < boletos.size(); i++) {
+            if (boletos.get(i).getId() == id) {
+                boletos.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 }
