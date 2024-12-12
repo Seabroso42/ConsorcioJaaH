@@ -13,59 +13,46 @@ public class ConsorcioApp {
     public static void main(String[] args) {
 
         Pagamento pagamento = new Pagamento(1, 100.0, true);
-        System.out.println("Pagamento ID: " + pagamento.getId());
+        BoletoRepository boletoRepository = new BoletoRepository();
+        PixRepository pixRepository = new PixRepository();
+        PagamentoRepository pagamentoRepository = new PagamentoRepository();
+        CartaoDeCreditoRepository cartaoDeCreditoRepository = new CartaoDeCreditoRepository();
+
 
         Pix pix = new Pix(2, 200.0, "codigoPix123", "chavePix123", "pagador1", true, pagamento);
-        System.out.println("Pix Chave: " + pix.getChavePix());
+        Pix pix2 = new Pix(3, 500.0, "codigoPix1234", "chavePix1234", "pagador2", true, pagamento);
+        Pix pix3 = new Pix(4, 2800.0, "codigoPix1235", "chavePix1235", "pagador3", true, pagamento);
 
-        Boleto boleto = new Boleto(3, 300.0, "codigoBoleto123", LocalDate.now(), "pagador2", true, pagamento);
+        Boleto boleto = new Boleto(1, 300.0, "codigoBoleto123", LocalDate.now(), "pagador2", true, pagamento);
+        Boleto boleto2 = new Boleto(2, 500.0, "codigoBoleto1234", LocalDate.now(), "pagador3", true, pagamento);
+        Boleto boleto3 = new Boleto(3, 700.0, "codigoBoleto1235", LocalDate.now(), "pagador5", true, pagamento);
+        
+        Pagamento pagamento1 = new Pagamento(1, 200, false);
+        Pagamento pagamento2 = new Pagamento(1, 200, false);
+        Pagamento pagamento3 = new Pagamento(1, 200, false);
+        
         System.out.println("Boleto Código: " + boleto.getCodigoBoleto());
-
-        CartaoDeCredito cartaoDeCredito = new CartaoDeCredito(4, 12, pagamento);
-        System.out.println("Cartão de Crédito Parcelas: " + cartaoDeCredito.getParcelas());
-
-        PixRepository pixRepository = new PixRepository();
-        pixRepository.insert(pix);
-        System.out.println("PixRepository Size: " + pixRepository.getAll().size());
-
-        BoletoRepository boletoRepository = new BoletoRepository();
+        System.out.println("Boleto ID: " + boleto.getId());
+        
         boletoRepository.insert(boleto);
-        System.out.println("BoletoRepository Size: " + boletoRepository.getAll().size());
-
-        CartaoDeCreditoRepository cartaoDeCreditoRepository = new CartaoDeCreditoRepository();
-        cartaoDeCreditoRepository.insert(cartaoDeCredito);
-        System.out.println("CartaoDeCreditoRepository Size: " + cartaoDeCreditoRepository.getAll().size());
-
-        PagamentoRepository pagamentoRepository = new PagamentoRepository();
-        pagamentoRepository.insert(pagamento);
-        System.out.println("PagamentoRepository Size: " + pagamentoRepository.getAll().size());
-
-        pix.setChavePix("novaChavePix123");
-        pixRepository.update(pix.getId(), pix);
-        System.out.println("Pix Updated Chave: " + pixRepository.getById(pix.getId()).get().getChavePix());
-
-        pixRepository.delete(pix.getId());
-        System.out.println("PixRepository Size after delete: " + pixRepository.getAll().size());
-
-        boleto.setCodigoBoleto("novoCodigoBoleto123");
-        boletoRepository.update(boleto.getId(), boleto);
-        System.out.println("Boleto Updated Código: " + boletoRepository.getById(boleto.getId()).get().getCodigoBoleto());
-
-        boletoRepository.delete(boleto.getId());
-        System.out.println("BoletoRepository Size after delete: " + boletoRepository.getAll().size());
-
-        cartaoDeCredito.setParcelas(24);
-        cartaoDeCreditoRepository.update(cartaoDeCredito.getId(), cartaoDeCredito);
-        System.out.println("Cartão de Crédito Updated Parcelas: " + cartaoDeCreditoRepository.getById(cartaoDeCredito.getId()).get().getParcelas());
-
-        cartaoDeCreditoRepository.delete(cartaoDeCredito.getId());
-        System.out.println("CartaoDeCreditoRepository Size after delete: " + cartaoDeCreditoRepository.getAll().size());
-
-        pagamento.setValor(150.0);
-        pagamentoRepository.update(pagamento.getId(), pagamento);
-        System.out.println("Pagamento Updated Valor: " + pagamentoRepository.getById(pagamento.getId()).get().getValor());
-
-        pagamentoRepository.delete(pagamento.getId());
-        System.out.println("PagamentoRepository Size after delete: " + pagamentoRepository.getAll().size());
+        boletoRepository.insert(boleto2);
+        boletoRepository.insert(boleto3);
+        pixRepository.insert(pix);
+        pixRepository.insert(pix2);
+        pixRepository.insert(pix3);
+        pagamentoRepository.insert(pagamento1);
+        pagamentoRepository.insert(pagamento2);
+        pagamentoRepository.insert(pagamento3);
+        // System.out.println("Boleto: " + boletoRepository.getById(boleto.getId()).get());
+        // System.out.println("Boleto: " + boletoRepository.getById(boleto2.getId()).get());
+        // System.out.println("Boleto: " + boletoRepository.getById(boleto3.getId()).get());
+        System.out.println("Tudo boleto: " + boletoRepository.getAll());
+        System.out.println("Deletando algo" + boletoRepository.delete(2));
+        System.out.println("Tudo boleto: " + boletoRepository.getAll());
+        System.out.println("Tudo Pix: " + pixRepository.getAll());
+        pix3.setValor(16700);
+        pixRepository.update(3, pix3);
+        System.out.println("Pix 3: " + pixRepository.getById(pix3.getId()).get().getValor());
+        System.out.println("");
     }
 }
