@@ -44,6 +44,13 @@ public class Pagamento {
         this.status = status;
     }
 
-
+    @Override
+    public String toString() {
+        return "\n{" + 
+                "id=" + id + '\n' +
+                ", valor=" + valor + '\n' +
+                ", status=" + status + '\n' +
+                "} \n ";
+    }
    
 }

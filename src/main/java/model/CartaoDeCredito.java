@@ -36,4 +36,16 @@ public class CartaoDeCredito extends Pagamento {
     public void setNumeroCartao(String numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
+
+    @Override
+    public String toString() {
+        return "\n{" + 
+                "id=" + id + '\n' +
+                ", parcelas=" + parcelas + '\n' +
+                ", pagamento=" + pagamento + '\n' +
+                ", numeroCartao='" + numeroCartao + '\n' +
+                ", valor=" + getValor() + '\n' +
+                ", status=" + getStatus() + '\n' +
+                "} \n ";
+    }
 }

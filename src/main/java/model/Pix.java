@@ -36,4 +36,16 @@ public class Pix extends Pagamento {
         this.pagador = pagador;
     }
 
+    @Override
+    public String toString() {
+        return "\n{" + 
+                "codigoPix='" + codigoPix + '\n' +
+                ", chavePix='" + chavePix + '\n' +
+                ", pagador='" + pagador + '\n' +
+                ", id=" + getId() + '\n' +
+                ", valor=" + getValor() + '\n' +
+                ", status=" + getStatus() + '\n' +
+                "} \n ";
+    }
+
 }

@@ -1,5 +1,4 @@
 package model;
-
 import java.time.LocalDate;
 
 public class Boleto extends Pagamento {
@@ -15,7 +14,6 @@ public class Boleto extends Pagamento {
         this.vencimento = vencimento;
         this.pagador = pagador;
     }
-
 
     public String getCodigoBoleto() {
         return codigoBoleto;
@@ -36,5 +34,16 @@ public class Boleto extends Pagamento {
         this.pagador = pagador;
     }
 
+    @Override
+    public String toString() {
+        return "\n{" + 
+                "codigoBoleto='" + codigoBoleto + '\n' +
+                ", vencimento=" + vencimento + '\n' +
+                ", pagador='" + pagador + '\n' +
+                ", id=" + getId() + '\n' +
+                ", valor=" + getValor() + '\n' +
+                ", status=" + getStatus() + '\n' +
+                "} \n ";
+    }
     
 }
