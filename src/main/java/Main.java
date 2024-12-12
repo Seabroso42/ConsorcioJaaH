@@ -1,4 +1,5 @@
 import model.Boleto;
+import model.CartaoDeCredito;
 import model.Pagamento;
 import model.Pix;
 import repository.PagamentoRepository;
@@ -10,13 +11,14 @@ public class Main {
         PagamentoRepository pagamentoRepository = new PagamentoRepository();
 
 
-        Pix pix = new Pix();
+        Pagamento pagamento1 = new Pix();
         Pix pix2 = new Pix();
-        Pix pix3 = new Pix();
 
-        Boleto boleto = new Boleto();
+        Boleto pagamento2 = new Boleto();
         Boleto boleto2 = new Boleto();
-        Boleto boleto3 = new Boleto();
+
+        CartaoDeCredito pagamento3 = new CartaoDeCredito();
+        CartaoDeCredito cd2 = new CartaoDeCredito();
 
 
 

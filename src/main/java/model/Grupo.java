@@ -22,6 +22,12 @@ public class Grupo implements Processo {
     //lista que armazena quantas parcelas o Cliente deve
     private HashMap<Cliente, Integer> devedores;
 
+    public void separarDevedores(){
+
+    }
+    public void cobrarParcela(){
+
+    }
 
     @Override
     public void sendRelatorio() {

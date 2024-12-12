@@ -6,6 +6,7 @@ public class CartaoDeCredito extends Pagamento {
     private Pagamento pagamento;
     private String numeroCartao;
 
+    public CartaoDeCredito(){}
     public CartaoDeCredito(long id, int parcelas, Pagamento pagamento) {
         super(id, pagamento.getValor(), pagamento.getStatus());
         this.id = id;

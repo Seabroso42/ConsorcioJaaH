@@ -8,10 +8,11 @@ import java.util.HashMap;
 
 @Data
 public class Consorcio implements Processo{
+    private Long idConsorcio;
     private LocalDate dataInicio;
     private String premiacao;
     private LocalDate dataSorteio;
- //   private ArrayList<Grupo> grupos;
+    private ArrayList<Grupo> grupos;
     private double valorRestante;
 // armazena quais clientes foram contemplados e quando.
     private HashMap<Cliente, LocalDate> contemplados;
@@ -21,6 +22,15 @@ public class Consorcio implements Processo{
         //this.grupos = grupos;
         this.dataInicio= LocalDate.now();
     }
+
+    public Cliente sorteio(){
+       Cliente sorteado= null;
+
+
+        return sorteado;
+    }
+
+    public void avaliarLance(){}
 
     @Override
     public void sendRelatorio() {

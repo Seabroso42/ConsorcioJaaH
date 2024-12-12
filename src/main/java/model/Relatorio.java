@@ -7,7 +7,12 @@ import java.time.LocalDate;
 
 @Data
 public class Relatorio {
-    private LocalDate data;
     private String titulo;
+    private LocalDate data;
     private Document dadoPDF;
+    private static int codigo= 0;
+
+    public Relatorio(){
+        codigo++;
+    }
 }
