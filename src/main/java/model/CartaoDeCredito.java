@@ -11,6 +11,7 @@ public class CartaoDeCredito extends Pagamento {
 
     public CartaoDeCredito(){}
     public CartaoDeCredito(int parcelas, String numeroCartao) {
+        super();
         this.parcelas = parcelas;
         this.numeroCartao = numeroCartao;
     }

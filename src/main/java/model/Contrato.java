@@ -7,14 +7,14 @@ import lombok.Data;
 @Data
 public class Contrato implements Processo{
     private Long idContrato;
-    private Cliente clienteVinculado;
+    private Usuario usuarioVinculado;
     private TipoServico tipoServico;
     private StatusCliente statusCliente;
 
     public Contrato() {
     }
-    public Contrato( Cliente clienteVinculado, TipoServico tipoServico) {
-        this.clienteVinculado = clienteVinculado;
+    public Contrato( Usuario usuarioVinculado, TipoServico tipoServico) {
+        this.usuarioVinculado = usuarioVinculado;
         this.tipoServico = tipoServico;
         this.statusCliente = StatusCliente.PAGANTE;
     }

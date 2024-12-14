@@ -84,7 +84,7 @@ public class ContratoRepository {
 
     public void imprimirContratos() {
         for (int i = 0; i < indice; i++) {
-            System.out.println("Cliente Vinculado:" + contratos[i].getClienteVinculado().getNome());
+            System.out.println("Cliente Vinculado:" + contratos[i].getUsuarioVinculado().getNome());
             System.out.println("Status dos pagamentos:" + String.valueOf(contratos[i].getStatusCliente()));
         }
     }

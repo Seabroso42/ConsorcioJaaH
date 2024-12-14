@@ -3,21 +3,18 @@ package model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Admin extends Usuario {
-    private String nome;
-    private String cpf;
-    private LocalDate dataNascimento;
-    private ArrayList<Contrato> contrato;
+    private ArrayList<Grupo> gruposVistoria;
 
-    public Admin(String nome, String cpf, LocalDate dataNascimento) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.contrato = new ArrayList<>();
+    public Admin(){
+        this.gruposVistoria = new ArrayList<>();
+    }
+    public Admin(String nome, Long CPF, String telefone, String email) {
+        super(nome, CPF, telefone, email);
+        this.gruposVistoria = new ArrayList<>();
     }
 
 }

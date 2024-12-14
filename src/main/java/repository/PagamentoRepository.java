@@ -32,7 +32,7 @@ public class PagamentoRepository {
         return Optional.empty();
     }
 
-    public void insert(Pagamento pagamento) {
+    public void inserir(Pagamento pagamento) {
         pagamentos.add(pagamento);
     }
 

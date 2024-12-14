@@ -13,6 +13,7 @@ public class Boleto extends Pagamento {
     public Boleto(){}
     
     public Boleto(String codigoBoleto, LocalDate vencimento) {
+        super();
         this.codigoBoleto = codigoBoleto;
         this.vencimento = vencimento;
     }
