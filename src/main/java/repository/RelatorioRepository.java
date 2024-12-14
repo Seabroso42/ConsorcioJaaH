@@ -1,13 +1,21 @@
 package repository;
 
+import lombok.Data;
 import model.Relatorio;
 
+@Data
 public class RelatorioRepository {
 
     private Relatorio[] relatorios;
     private int indice;
-    private RelatorioRepository instance;
+    private static RelatorioRepository instance;
 
+    public static RelatorioRepository getInstance(){
+        if (instance==null){
+            instance = new RelatorioRepository();
+        }
+        return instance;
+    }
 
     public RelatorioRepository() {
         relatorios = new Relatorio[100];

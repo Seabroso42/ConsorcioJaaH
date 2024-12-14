@@ -1,10 +1,20 @@
 package repository;
 
+import lombok.Data;
 import model.Consorcio;
 
+@Data
 public class ConsorcioRepository {
     private Consorcio[] consorcios;
     private int indice;
+    private static ConsorcioRepository instance;
+
+    public static ConsorcioRepository getInstance(){
+        if (instance==null){
+            instance = new ConsorcioRepository();
+        }
+        return instance;
+    }
 
     public ConsorcioRepository() {
         consorcios = new Consorcio[100];

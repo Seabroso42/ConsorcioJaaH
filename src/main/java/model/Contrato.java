@@ -11,6 +11,14 @@ public class Contrato implements Processo{
     private TipoServico tipoServico;
     private StatusCliente statusCliente;
 
+    public Contrato() {
+    }
+    public Contrato( Cliente clienteVinculado, TipoServico tipoServico) {
+        this.clienteVinculado = clienteVinculado;
+        this.tipoServico = tipoServico;
+        this.statusCliente = StatusCliente.PAGANTE;
+    }
+
 
     @Override
     public void sendRelatorio() {

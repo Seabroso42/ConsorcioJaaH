@@ -22,6 +22,22 @@ public class Grupo implements Processo {
     //lista que armazena quantas parcelas o Cliente deve
     private HashMap<Cliente, Integer> devedores;
 
+    public Grupo(){
+        this.lances = new HashMap<>();
+        this.contribuintes = new LinkedList<>();
+        this.devedores = new HashMap<>();
+    }
+    public Grupo( int numeroParcelas, double valorTotal, Admin supervisor, double taxaAdm) {
+        this.numeroParcelas = numeroParcelas;
+        this.valorTotal = valorTotal;
+        this.supervisor = supervisor;
+        this.taxaAdm = taxaAdm;
+        this.lances = new HashMap<>();
+        this.contribuintes = new LinkedList<>();
+        this.devedores = new HashMap<>();
+    }
+
+
     public void separarDevedores(){
 
     }

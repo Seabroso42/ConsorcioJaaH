@@ -1,10 +1,20 @@
 package repository;
 
+import lombok.Data;
 import model.Usuario;
 
+@Data
 public class UsuarioRepository {
     private Usuario[] usuarios;
     private int indice;
+    private static UsuarioRepository instance;
+
+    public static UsuarioRepository getInstance(){
+        if (instance==null){
+            instance = new UsuarioRepository();
+        }
+        return instance;
+    }
 
     public UsuarioRepository() {
         usuarios = new Usuario[100];

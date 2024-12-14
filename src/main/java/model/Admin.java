@@ -13,11 +13,11 @@ public class Admin extends Usuario {
     private LocalDate dataNascimento;
     private ArrayList<Contrato> contrato;
 
-    public Admin(String nome, String cpf, LocalDate dataNascimento, ArrayList<Contrato> contrato) {
+    public Admin(String nome, String cpf, LocalDate dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.contrato = contrato;
+        this.contrato = new ArrayList<>();
     }
 
 }

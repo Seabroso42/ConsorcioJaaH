@@ -9,12 +9,11 @@ import java.util.ArrayList;
 public class Cliente extends Usuario {
 
     private ArrayList<Grupo> consorciosAtivos;
+    private ArrayList<Contrato> historicoContratos;
 
-    public Cliente() {}
-
-    public Cliente(ArrayList<Grupo> consorciosAtivos) {
-        super();
-        this.consorciosAtivos = consorciosAtivos;
+    public Cliente() {
+        this.consorciosAtivos = new ArrayList<>();
+        this.historicoContratos = new ArrayList<>();
     }
 
     public void darLance(Grupo grupo, Double valor) { }

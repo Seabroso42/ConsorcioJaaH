@@ -7,5 +7,8 @@ import lombok.EqualsAndHashCode;
 @Data
 public class Pix extends Pagamento {
     private String chavePix;
-    private boolean realizado;
+    public Pix(){}
+    public Pix(String chavePix) {
+        this.chavePix = chavePix;
+    }
 }

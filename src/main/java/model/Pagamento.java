@@ -10,10 +10,10 @@ public abstract class Pagamento implements Processo {
     private Boolean status;
 
     public Pagamento(){}
-    public Pagamento(long id, Double valor, Boolean status) {
+    public Pagamento(long id, Double valor) {
         this.id = id;
         this.valor = valor;
-        this.status = status;
+        this.status = false;
     }
 
     @Override

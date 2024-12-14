@@ -1,10 +1,20 @@
 package repository;
 
+import lombok.Data;
 import model.Contrato;
 
+@Data
 public class ContratoRepository {
     private Contrato[] contratos;
     private int indice;
+    private static ContratoRepository instance;
+
+    public static ContratoRepository getInstance(){
+        if (instance==null){
+            instance = new ContratoRepository();
+        }
+        return instance;
+    }
 
     public ContratoRepository() {
         contratos = new Contrato[100];

@@ -15,4 +15,10 @@ public class Relatorio {
     public Relatorio(){
         codigo++;
     }
+    public Relatorio(String titulo, LocalDate data) {
+        this.titulo = titulo;
+        this.data = data;
+        this.dadoPDF = null;
+        codigo++;
+    }
 }
