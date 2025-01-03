@@ -9,7 +9,7 @@ import java.util.HashMap;
 @Data
 public class Consorcio implements Processo{
     private Long idConsorcio;
-    private Long numConsorcios= 0L;
+    private static Long numConsorcios= 0L;
     private LocalDate dataInicio;
     private String premiacao;
     private LocalDate dataSorteio;

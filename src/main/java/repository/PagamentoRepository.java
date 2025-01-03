@@ -3,56 +3,87 @@ package repository;
 import lombok.Data;
 import model.Pagamento;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Data
 public class PagamentoRepository {
-    private List<Pagamento> pagamentos = new ArrayList<>();
+    private Pagamento[] pagamentos;
+    private int indice;
     private static PagamentoRepository instance;
 
-    public static PagamentoRepository getInstance(){
-        if (instance==null){
+    public static PagamentoRepository getInstance() {
+        if (instance == null) {
             instance = new PagamentoRepository();
         }
         return instance;
     }
 
-    public List<Pagamento> getAll() {
-        return new ArrayList<>(pagamentos);
-    }
+    public PagamentoRepository() {
+        this.pagamentos = new Pagamento[100];
+        this.indice = 0;
 
-    public Optional<Pagamento> getById(long id) {
-        for (Pagamento pagamento : pagamentos) {
-            if (pagamento.getId() == id) {
-                return Optional.of(pagamento);
-            }
-        }
-        return Optional.empty();
     }
 
     public void inserir(Pagamento pagamento) {
-        pagamentos.add(pagamento);
+        pagamentos[indice] = pagamento;
+        indice = indice + 1;
     }
 
-    public boolean update(long id, Pagamento updatedPagamento) {
-        for (int i = 0; i < pagamentos.size(); i++) {
-            if (pagamentos.get(i).getId() == id) {
-                pagamentos.set(i, updatedPagamento);
-                return true;
-            }
+    public void atualizar(Pagamento pagamento) {
+        int i = getIndice(pagamento.getId());
+        if (i == indice) {
+            System.out.println("Pagamento Não Encontrado");
+        } else {
+            pagamentos[i] = pagamento;
         }
-        return false;
     }
 
-    public boolean delete(long id) {
-        for (int i = 0; i < pagamentos.size(); i++) {
-            if (pagamentos.get(i).getId() == id) {
-                pagamentos.remove(i);
-                return true;
-            }
+    public void remover(Long id) {
+        int i = getIndice(id);
+        if (i == indice) {
+            System.out.println("Pagamento Não Encontrado");
+        } else {
+            pagamentos[i] = pagamentos[indice - 1];
+            indice = indice - 1;
         }
-        return false;
     }
+
+    public Pagamento procurar(Long id) {
+        Pagamento resposta = null;
+        int i = getIndice(id);
+        if (i == indice) {
+            System.out.println("Pagamento Não Encontrado");
+        } else {
+            resposta = pagamentos[i];
+        }
+        return resposta;
+    }
+public boolean existe (Long id){
+        boolean resposta;
+        int i = getIndice(id);
+        if (i == indice){
+            resposta = false;
+        }else{
+            resposta = true;
+        }
+        return resposta;
 }
+
+ private int getIndice(Long id) {
+        Long n;
+        boolean achou = false;
+        int i = 0;
+        while ((!achou) && (i<indice)){
+            n = pagamentos[i].getId();
+            if (n.equals(id)){
+                achou = true;
+            }else{
+                i = i + 1;
+            }
+        }
+        return i;
+    }
+    public void imprimirPagamentos() {
+        for (Pagamento pagamento : pagamentos) {
+            System.out.println(pagamento);
+        }
+    }}
