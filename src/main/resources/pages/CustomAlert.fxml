@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="alertBackground" prefHeight="400.0" prefWidth="600.0" stylesheets="@components.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pages.CustomAlert">
+   <children>
+      <AnchorPane layoutX="200.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Rectangle id="orangeRectangle" arcHeight="5.0" arcWidth="5.0" fill="#ffa000" height="103.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <ImageView id="alertImage" fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/tonel.png" />
+               </image>
+            </ImageView>
+            <Text id="errorMessage" layoutX="86.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+         </children>
+      </AnchorPane>
+      <Text id="exceptionText" layoutX="286.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Button id="alertX" layoutX="516.0" layoutY="32.0" mnemonicParsing="false" styleClass="closeBtn" text="x" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,12 @@
+.root{
+    --darkbackground: #0D040D;
+}
+#alertBackground{
+    background-color: var(--darkbackground);
+    width: 580px;
+    height: 520px;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
